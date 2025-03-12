@@ -181,10 +181,15 @@ public class TransactionProcessor {
                 $("merchant"),
                 $("userId"),
                 // Cast/transform data - simple currency conversion example
-                callSql(
-                        "IF(`currency` = 'EUR', `amount` * 1.1, "
-                            + "IF(`currency` = 'GBP', `amount` * 1.3, `amount`))")
-                    .as("amountInUsd"),
+                ifThenElse(
+                        $("currency").isEqual("EUR"),
+                        $("amount").times(1.1),
+                        ifThenElse(
+                                $("currency").isEqual("GBP"),
+                                $("amount").times(1.3),
+                                $("amount")
+                        )
+                ).as("amountInUsd"),
                 // Add processing timestamp
                 currentTimestamp().as("processingTimestamp"));
 
