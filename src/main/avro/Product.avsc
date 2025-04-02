@@ -1,0 +1,36 @@
+{
+  "type": "record",
+  "name": "Product",
+  "namespace": "com.example.model",
+  "doc": "Model class representing a product event from Kafka",
+  "fields": [
+    {
+      "name": "product_id",
+      "type": "string",
+      "doc": "Unique identifier for the product"
+    },
+    {
+      "name": "price",
+      "type": {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 10,
+        "scale": 2
+      },
+      "doc": "Price of the product with 2 decimal places"
+    },
+    {
+      "name": "quantity",
+      "type": "int",
+      "doc": "Quantity of the product"
+    },
+    {
+      "name": "timestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Timestamp when the product event was created"
+    }
+  ]
+} 
