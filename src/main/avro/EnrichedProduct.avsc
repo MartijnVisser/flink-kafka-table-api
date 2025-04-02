@@ -1,0 +1,56 @@
+{
+  "type": "record",
+  "name": "EnrichedProduct",
+  "namespace": "com.example.model",
+  "doc": "Model class representing an enriched product event that includes data from both Kafka and MySQL",
+  "fields": [
+    {
+      "name": "product_id",
+      "type": "string",
+      "doc": "Unique identifier for the product"
+    },
+    {
+      "name": "price",
+      "type": {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 10,
+        "scale": 2
+      },
+      "doc": "Price of the product with 2 decimal places"
+    },
+    {
+      "name": "quantity",
+      "type": "int",
+      "doc": "Quantity of the product"
+    },
+    {
+      "name": "timestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "Timestamp when the product event was created"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": "Name of the product"
+    },
+    {
+      "name": "brand",
+      "type": "string",
+      "doc": "Brand of the product"
+    },
+    {
+      "name": "vendor",
+      "type": "string",
+      "doc": "Vendor of the product"
+    },
+    {
+      "name": "department",
+      "type": "string",
+      "doc": "Department the product belongs to"
+    }
+  ]
+} 
